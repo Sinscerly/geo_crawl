@@ -42,7 +42,10 @@ class cacheInfo(object):
     def get_finds(self):
         return int(self.logTotals[0])
     def get_doNotFinds(self):
-        return int(self.logTotals[1])
+        if ("Didn't find it" in str(self.source.find("p", {"class": "LogTotals"}))):
+            return int(self.logTotals[1])
+        else:
+            return 0
     def get_writeNotes(self):
         return int(self.logTotals[2])
     def get_favo(self):
